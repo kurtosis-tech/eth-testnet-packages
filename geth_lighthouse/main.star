@@ -21,8 +21,8 @@ CL_CLIENT_LOG_LEVEL = "debug"
 CL_CLIENT_IMAGE = input_parser.DEFAULT_CL_IMAGES["lighthouse"]
 
 # Example data:
-num_participants = 2
-network_params = {
+NUM_PARTICIPANTS = 2
+NETWORK_PARAMS = {
     "preregistered_validator_keys_mnemonic": "giant issue aisle success illegal bike spike question tent bar rely arctic volcano long crawl hungry vocal artwork sniff fantasy very lucky have athlete",
     "num_validator_keys_per_node": 64,
     "network_id": "3151908",
@@ -35,12 +35,12 @@ network_params = {
 
 def run(plan):
     # Generate genesis (optional)
-    final_genesis_timestamp = (time.now() + CL_GENESIS_DATA_GENERATION_TIME + num_participants * CL_NODE_STARTUP_TIME).unix
-    el_genesis_data = generate_el_genesis_data(plan, final_genesis_timestamp, network_params)
+    final_genesis_timestamp = (time.now() + CL_GENESIS_DATA_GENERATION_TIME + NUM_PARTICIPANTS * CL_NODE_STARTUP_TIME).unix
+    el_genesis_data = generate_el_genesis_data(plan, final_genesis_timestamp, NETWORK_PARAMS)
 
     # Run the nodes
-    el_context = run_geth(plan, network_params, el_genesis_data)
-    run_lighthouse(plan, network_params, num_participants, final_genesis_timestamp, el_genesis_data, el_context)
+    el_context = run_geth(plan, NETWORK_PARAMS, el_genesis_data)
+    run_lighthouse(plan, NETWORK_PARAMS, NUM_PARTICIPANTS, final_genesis_timestamp, el_genesis_data, el_context)
     return
 
 
@@ -70,6 +70,7 @@ def run_geth(plan, network_params, el_genesis_data):
 
 
 def run_lighthouse(plan, network_params, num_participants, final_genesis_timestamp, el_genesis_data, el_context):
+    # Prepare the genesis data
     genesis_generation_config_yml_template = read_file(static_files.CL_GENESIS_GENERATION_CONFIG_TEMPLATE_FILEPATH)
     genesis_generation_mnemonics_yml_template = read_file(static_files.CL_GENESIS_GENERATION_MNEMONICS_TEMPLATE_FILEPATH)
     total_number_of_validator_keys = network_params["num_validator_keys_per_node"] * num_participants
@@ -97,6 +98,7 @@ def run_lighthouse(plan, network_params, num_participants, final_genesis_timesta
     preregistered_validator_keys_for_nodes = cl_validator_data.per_node_keystores
     new_cl_node_validator_keystores = preregistered_validator_keys_for_nodes[0] # we only have one node in this example
 
+    # Launch the service
     service_name = "{0}{1}".format(CL_CLIENT_SERVICE_NAME_PREFIX, 0)
     launcher = lighthouse.new_lighthouse_launcher(cl_genesis_data)
     lighthouse.launch(
