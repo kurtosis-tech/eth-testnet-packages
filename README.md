@@ -11,7 +11,7 @@ If you have [Kurtosis installed][install-kurtosis], run:
 kurtosis run github.com/kurtosis-tech/geth-lighthouse-package
 ```
 
-If you don't have Kurtosis installed, [click here to run this package on the Kurtosis playground](https://gitpod.io/?autoStart=true&editor=code#https://github.com/kurtosis-tech/geth-lighthouse-package-package).
+If you don't have Kurtosis installed, [click here to run this package on the Kurtosis playground](https://gitpod.io/?autoStart=true&editor=code#https://github.com/kurtosis-tech/geth-lighthouse-package).
 
 To blow away the created [enclave][enclaves-reference], run `kurtosis clean -a`.
 
