@@ -1,5 +1,5 @@
-geth = import_module("github.com/kurtosis-tech/eth-testnet-packages/geth-lighthouse/geth-package/geth.star")
-lighthouse = import_module("github.com/kurtosis-tech/eth-testnet-packages/geth-lighthouse/lighthouse-package/lighthouse.star")
+geth = import_module("github.com/kurtosis-tech/geth-package/lib/geth.star")
+lighthouse = import_module("github.com/kurtosis-tech/lighthouse-package/lib/lighthouse.star")
 
 network_params = json.decode(read_file("github.com/kurtosis-tech/eth-testnet-packages/geth-lighthouse/network_params.json"))
 
