@@ -40,7 +40,7 @@ def run(plan, network_params, num_participants, final_genesis_timestamp, el_gene
         network_params["num_validator_keys_per_node"],
     )
     preregistered_validator_keys_for_nodes = cl_validator_data.per_node_keystores
-    new_cl_node_validator_keystores = preregistered_validator_keys_for_nodes[0] # we only have one node in this example
+    new_cl_node_validator_keystores = preregistered_validator_keys_for_nodes[0]
 
     # Launch the service
     service_name = "{0}{1}".format(CL_CLIENT_SERVICE_NAME_PREFIX, 0)

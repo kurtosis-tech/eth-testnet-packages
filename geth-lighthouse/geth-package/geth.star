@@ -13,6 +13,10 @@ EL_CLIENT_LOG_LEVEL = "3"
 EL_CLIENT_IMAGE = input_parser.DEFAULT_EL_IMAGES["geth"]
 GLOBAL_LOG_LEVEL = ""
 
+GENESIS_DATA_GENERATION_TIME = 5 * time.second
+NODE_STARTUP_TIME = 5 * time.second
+
+
 def run(plan, network_params, el_genesis_data):
     geth_prefunded_keys_artifact_name = plan.upload_files(
         static_files.GETH_PREFUNDED_KEYS_DIRPATH,
@@ -49,3 +53,6 @@ def generate_el_genesis_data(plan, final_genesis_timestamp, network_params):
         network_params["capella_fork_epoch"],
     )
     return el_genesis_data
+
+def generate_genesis_timestamp(num_participants):
+    return (time.now() + GENESIS_DATA_GENERATION_TIME + num_participants * NODE_STARTUP_TIME).unix
