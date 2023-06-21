@@ -13,7 +13,7 @@ CLIENT_LOG_LEVEL = "debug"
 CLIENT_IMAGE = input_parser.DEFAULT_CL_IMAGES["lighthouse"]
 
 
-def run(plan, network_params, final_genesis_timestamp, el_genesis_data, el_context):
+def run(plan, network_params, el_genesis_data, final_genesis_timestamp, el_context):
     num_participants = 1 # The number of participants in this setup is always 1
     # Prepare the genesis data
     genesis_generation_config_yml_template = read_file(static_files.CL_GENESIS_GENERATION_CONFIG_TEMPLATE_FILEPATH)
