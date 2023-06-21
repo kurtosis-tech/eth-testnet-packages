@@ -1,6 +1,6 @@
 # Imports
-geth = import_module("github.com/kurtosis-tech/eth-testnet-packages/geth-lighthouse/geth-package/geth.star")
-lighthouse = import_module("github.com/kurtosis-tech/eth-testnet-packages/geth-lighthouse/lighthouse-package/lighthouse.star")
+geth = import_module("github.com/kurtosis-tech/eth-testnet-packages/geth-lighthouse-package/geth-package/geth.star")
+lighthouse = import_module("github.com/kurtosis-tech/eth-testnet-packages/geth-lighthouse-package/lighthouse-package/lighthouse.star")
 
 # Example data:
 NUM_PARTICIPANTS = 2
