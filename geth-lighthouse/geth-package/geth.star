@@ -54,5 +54,5 @@ def generate_el_genesis_data(plan, final_genesis_timestamp, network_params):
     )
     return el_genesis_data
 
-def generate_genesis_timestamp(num_participants):
+def generate_genesis_timestamp(num_participants = 1):
     return (time.now() + GENESIS_DATA_GENERATION_TIME + num_participants * NODE_STARTUP_TIME).unix
