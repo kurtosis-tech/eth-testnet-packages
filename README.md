@@ -1,6 +1,6 @@
 geth-lighthouse-package
 ============
-This is a [Kurtosis package](https://docs.kurtosis.com/concepts-reference/packages). It doesn't do much now, but it will soon!
+This is a [Kurtosis package](https://docs.kurtosis.com/concepts-reference/packages).
 
 Run this package
 ----------------
