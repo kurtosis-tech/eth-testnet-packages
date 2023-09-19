@@ -1,7 +1,7 @@
 geth = import_module("github.com/kurtosis-tech/geth-package/lib/geth.star")
 lighthouse = import_module("github.com/kurtosis-tech/lighthouse-package/lib/lighthouse.star")
 
-network_params = json.decode(read_file("github.com/kurtosis-tech/geth-lighthouse-package/network_params.json"))
+network_params = json.decode(read_file("/network_params.json"))
 
 def run(plan):
     # Generate genesis, note EL and the CL needs the same timestamp to ensure that timestamp based forking works
